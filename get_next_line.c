@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdadak <sdadak@student.42istanbul.com.tr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 20:34:40 by sdadak            #+#    #+#             */
+/*   Updated: 2025/07/28 21:21:33 by sdadak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
@@ -30,7 +42,9 @@ char *ft_get_next_line(int fd)
         }
         if(bytes_read == 0) // ? seyda için 
         {
-            return (NULL);
+		if (stash[0] == '\0')
+			return (NULL);
+		return (stash);
         }
         buffer[bytes_read] = '\0';
 
@@ -45,7 +59,7 @@ char *ft_get_next_line(int fd)
         if (stash[i] == '\n')
         {
             temp = ft_substr(stash, 0, i + 1);
-            if (stash[i + 1] != '\0' || 0 != bytes_read)
+            if (stash[i + 1] != '\0' || bytes_read != 0)
             {
                 //free(stash);
                 stash = ft_substr(stash, i + 1, ft_strlen(stash) - i + 1);
@@ -59,18 +73,19 @@ char *ft_get_next_line(int fd)
 
 int main()
 {
-    int fd = open("asd.txt", O_CREAT | O_RDWR , 0777);
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
-    printf("%s", ft_get_next_line(fd));
+	int fd = open("asd.txt", O_CREAT | O_RDWR , 0777);
+	
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
+    	printf("%s", ft_get_next_line(fd));
 }
 
 

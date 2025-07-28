@@ -6,7 +6,7 @@
 /*   By: hdere <hdere@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:39:29 by hdere             #+#    #+#             */
-/*   Updated: 2025/07/27 20:13:12 by hdere            ###   ########.fr       */
+/*   Updated: 2025/07/28 20:55:05 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 1234567
 # endif
 
 char    *ft_get_next_line(int fd);
