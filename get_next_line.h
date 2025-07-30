@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdere <hdere@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:39:29 by hdere             #+#    #+#             */
-/*   Updated: 2025/07/28 20:55:05 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/07/29 20:39:48 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1234567
+#  define BUFFER_SIZE 5
 # endif
 
 char    *ft_get_next_line(int fd);
