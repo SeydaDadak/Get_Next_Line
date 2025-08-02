@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sdadak <sdadak@student.42istanbul.com      +#+  +:+       +#+        */
+/*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 09:26:40 by sdadak            #+#    #+#             */
-/*   Updated: 2025/08/02 09:27:07 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/08/02 13:49:55 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(const char *s, int c)
 {

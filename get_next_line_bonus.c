@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 09:24:01 by sdadak            #+#    #+#             */
-/*   Updated: 2025/08/02 09:49:36 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/08/02 13:50:09 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	read_to_stash(char **stash, int fd)
 {
@@ -60,20 +60,20 @@ static char	*ft_line(char **stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash[1024];
 	char		*line;
 	int			ctrl;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!stash)
-		stash = ft_strdup("");
-	if (!stash)
+	if (!stash[fd])
+		stash[fd] = ft_strdup("");
+	if (!stash[fd])
 		return (NULL);
-	ctrl = read_to_stash(&stash, fd);
+	ctrl = read_to_stash(&stash[fd], fd);
 	if (ctrl == 0)
 		return (NULL);
 	else if (ctrl == 1)
-		return (line = stash, stash = NULL, line);
-	return (ft_line(&stash));
+		return (line = stash[fd], stash[fd] = NULL, line);
+	return (ft_line(&stash[fd]));
 }
