@@ -6,7 +6,7 @@
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 09:24:01 by sdadak            #+#    #+#             */
-/*   Updated: 2025/08/02 13:50:09 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/08/03 19:10:10 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	read_to_stash(char **stash, int fd)
 {
 	char	*buffer;
 	char	*temp;
-	int		bytes_read;
+	ssize_t	bytes_read;
 
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
@@ -50,6 +50,8 @@ static char	*ft_line(char **stash)
 	line = ft_substr(*stash, 0, i + 1);
 	if (!line)
 		return (free(*stash), *stash = NULL, NULL);
+	if ((*stash)[i] == '\n' && !(*stash)[i + 1])
+		return (free(*stash), *stash = NULL, line);
 	new_stash = ft_substr(*stash, i + 1, ft_strlen(*stash) - i - 1);
 	free(*stash);
 	if (!new_stash)
@@ -64,7 +66,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			ctrl;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!stash[fd])
 		stash[fd] = ft_strdup("");

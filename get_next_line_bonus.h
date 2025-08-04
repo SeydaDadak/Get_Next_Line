@@ -6,7 +6,7 @@
 /*   By: sdadak <sdadak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 09:25:49 by sdadak            #+#    #+#             */
-/*   Updated: 2025/08/02 13:50:34 by sdadak           ###   ########.fr       */
+/*   Updated: 2025/08/03 20:27:08 by sdadak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 6
 # endif
 
 char	*get_next_line(int fd);
